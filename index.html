@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Haide - Galería</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="scroll-container">
+    <section id="inicio" class="pantalla">
+      <div class="background-slider"></div>
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="fondo">
+          <!-- Asegúrate de tener estas imágenes en la carpeta public/imagenes/ -->
+          <img src="/imagenes/flores.webp" alt="flores-decorativas" class="flores">
+          <img src="/imagenes/flores2.webp" alt="flores-decorativas" class="flores2">
+          <img src="/imagenes/haide.webp" alt="quinceanera" class="quinceanera">
+
+          <div id="faq-icon" title="Ayuda y Consejos">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28px" height="28px">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+            </svg>
+          </div>
+        </div>
+        <div class="texto">
+          <img src="/imagenes/corona.webp" alt="corona" class="corona">
+          <div>Haide</div>
+          <div>Mis Quince Años</div>
+          <div>19 • 12 • 2025</div>
+        </div>
+        <div class="action-area">
+          <div class="frase">
+            <h2 id="fraseCambia">¡Sonríe y captura el momento!</h2>
+          </div>
+          <form id="uploadForm">
+            <label for="cameraInput" class="boton-accion"> Abrir Cámara</label>
+            <input type="file" id="cameraInput" accept="image/*" capture="environment">
+            <label for="fileInput" class="boton-accion"> Elegir de la Galería <span id="contador-fotos"></span></label>
+            <input type="file" id="fileInput" multiple accept="image/*">
+            <button type="submit">Subir Fotos</button>
+          </form>
+        </div>
+      </div>
+      <div id="mensaje"></div>
+      <div class="scroll-indicator"><span>🔽 Ver Galería 🔽</span></div>
+    </section>
+    <section id="galeriaSection" class="pantalla">
+      <div class="header-galeria">
+        <h2>Galería de Recuerdos</h2>
+      </div>
+      <div id="galeria"></div>
+    </section>
+  </div>
+
+  <div id="modal" class="modal-overlay">
+    <span id="cerrarModalBtn" class="cerrar-modal">×</span>
+    <img id="modalImagen" alt="Vista ampliada" />
+    <button id="anterior">⬅️</button>
+    <button id="siguiente">➡️</button>
+  </div>
+
+  <div id="faq-modal" class="modal-overlay">
+    <div class="faq-content">
+      <button id="cerrarFaqBtn" class="cerrar-modal">×</button>
+      <h2>Consejos Útiles</h2>
+      <div class="faq-item">
+        <h3>¿Problemas con la cámara?</h3>
+        <p>Si la cámara no abre, usa la app de cámara de tu móvil y luego selecciona "Elegir de la Galería".</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPORTANTE: Enlace al Javascript principal -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

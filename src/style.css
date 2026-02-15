@@ -1,0 +1,544 @@
+/* =================================================================== */
+/* 1. CONFIGURACIÓN GENERAL Y VARIABLES DE DISEÑO                     */
+/* =================================================================== */
+:root {
+    --text-color: #383838;
+    --primary-color: #73C4F1;
+    --secondary-color: #730c88;
+    --font-headings: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-name: 'dancin', sans-serif;
+}
+
+@font-face {
+    font-family: andante;
+    src: url(public/andante.woff);
+}
+
+@font-face {
+    font-family: andante2;
+    src: url(public/andante.woff2);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: var(--font-body);
+    background-color: white;
+}
+
+body {
+    user-select: none;
+    touch-action: manipulation;
+}
+
+/* =================================================================== */
+/* 2. ESTRUCTURA PRINCIPAL                                            */
+/* =================================================================== */
+.scroll-container {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.pantalla {
+    height: 100dvh;
+    width: 100%;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* =================================================================== */
+/* 3. PANTALLA DE INICIO (HERO SECTION)                               */
+/* =================================================================== */
+#inicio {
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.fondo {
+
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background-image: url(imagenes/fondo.webp);
+    background-size: contain;
+    background-position: center;
+
+}
+
+.flores {
+    width: 125%;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, .25));
+}
+
+.flores2 {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.quinceanera {
+    width: 195%;
+    position: absolute;
+    left: -80%;
+    bottom: -15%;
+    z-index: 1;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+}
+
+.texto {
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    height: 40%;
+    position: absolute;
+    top: 15%;
+    left: 39%;
+    z-index: 100;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-shadow: -5px 5px 5px #00000050;
+}
+
+.texto img {
+    width: 50%;
+    filter: drop-shadow(-5px 5px 5px #00000050);
+    animation: scale 10s ease-in-out infinite;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.texto :nth-child(2) {
+    font-family: 'andante', 'andante2', sans-serif;
+    color: var(--primary-color);
+    font-size: 5.5rem;
+    margin: 0;
+    padding: 0;
+    line-height: .95;
+}
+
+.texto :nth-child(3) {
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+.texto :nth-child(4) {
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));*/
+    z-index: 2;
+}
+
+#inicio .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.welcome-text {
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+}
+
+.wedding-intro,
+.wedding-date {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.couple-names {
+    font-family: var(--font-headings);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 5px 0;
+    line-height: 1;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.action-area {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.frase {
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff90;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    filter: blur();
+}
+
+#fraseCambia {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 400;
+    transition: opacity 0.5s ease-in-out;
+    color: var(--text-color);
+}
+
+#uploadForm {
+    display: contents;
+}
+
+#uploadForm input[type="file"] {
+    display: none;
+}
+
+.boton-accion,
+#uploadForm button[type="submit"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff10;
+    border: 3px solid var(--primary-color);
+    backdrop-filter: blur(5px);
+    color: var(--text-color);
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 55%;
+    max-width: 300px;
+    transition: all 0.3s ease;
+}
+
+.boton-accion:hover,
+#uploadForm button[type="submit"]:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.03);
+}
+
+#uploadForm button[type="submit"] {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+#uploadForm button[type="submit"]:hover {
+    background-color: #CBB26A;
+}
+
+#uploadForm button[type="submit"]:disabled {
+    background-color: #9E9E9E;
+    cursor: not-allowed;
+}
+
+#contador-fotos {
+    background-color: white;
+    color: var(--primary-color);
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-weight: 700;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+#mensaje {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 10;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: var(--text-color);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(-50%, 0);
+    }
+
+    40% {
+        transform: translate(-50%, -10px);
+    }
+
+    60% {
+        transform: translate(-50%, -5px);
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+/* =================================================================== */
+/* 4. SECCIÓN DE LA GALERÍA                                           */
+/* =================================================================== */
+#galeriaSection {
+    background-color: var(--bg-color);
+    padding: 0 10px 10px 10px;
+}
+
+.header-galeria {
+    padding: 20px 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background: var(--bg-color);
+    z-index: 5;
+    flex-shrink: 0;
+}
+
+.header-galeria h2 {
+    font-family: var(--font-headings);
+    margin: 0;
+    color: var(--primary-color);
+}
+
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#galeria img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-out both;
+}
+
+#galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* =================================================================== */
+/* 5. MODAL (IMAGEN Y FAQ)                                            */
+/* =================================================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+#modalImagen {
+    max-width: 95vw;
+    max-height: 85vh;
+    border-radius: 8px;
+}
+
+#modal button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.2s;
+}
+
+#modal button:hover {
+    color: white;
+}
+
+#anterior {
+    left: 5px;
+}
+
+#siguiente {
+    right: 5px;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* =================================================================== */
+/* 6. ESTILOS PARA EL FAQ (NUEVO)                                      */
+/* =================================================================== */
+#faq-icon {
+    position: absolute;
+    bottom: 25px;
+    /* Un poco más arriba */
+    right: 20px;
+    width: 45px;
+    /* Más pequeño */
+    height: 45px;
+    /* Más pequeño */
+    /* Efecto satinado/glassmorphism */
+    background-color: #73C4F150;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Borde sutil */
+    backdrop-filter: blur(5px);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+#faq-icon svg {
+    width: 24px;
+    /* Ajustar tamaño del SVG si es necesario */
+    height: 24px;
+}
+
+#faq-icon:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    /* Efecto de levantar al pasar el ratón */
+}
+
+.faq-content {
+    background-color: white;
+    padding: 25px 35px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+    color: var(--text-color);
+}
+
+.faq-content h2 {
+    font-family: var(--font-headings);
+    color: var(--primary-color);
+    margin-top: 0;
+    text-align: center;
+}
+
+.faq-content h3 {
+    color: var(--text-color);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.faq-content p,
+.faq-content li {
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.faq-content ol {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.faq-content .cerrar-modal {
+    color: #aaa;
+    font-size: 30px;
+    top: 10px;
+    right: 15px;
+}
+
+.faq-content .cerrar-modal:hover {
+    color: #333;
+}
