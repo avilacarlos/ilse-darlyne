@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Haide - Galería</title>
+  <title>Ilse Darlyne - Galería</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,9 +23,15 @@
       <div class="content">
         <div class="fondo">
           <!-- Asegúrate de tener estas imágenes en la carpeta public/imagenes/ -->
-          <img src="/imagenes/flores.webp" alt="flores-decorativas" class="flores">
-          <img src="/imagenes/flores2.webp" alt="flores-decorativas" class="flores2">
-          <img src="/imagenes/haide.webp" alt="quinceanera" class="quinceanera">
+          <img src="/imagenes/fondo.png" alt="flores-decorativas" class="fondo">
+          <div class="floresdecorativas">
+            <img src="/imagenes/floresarriba.png" alt="flores-arriba">
+            <img src="/imagenes/floresabajo.png" alt="flores-abajo">
+          </div>
+          <img src="/imagenes/xv.png" alt="quinceanera" class="xv">
+          <img src="/imagenes/nombre.png" alt="nombre" class="nombre" style="width: 65%;">
+
+        </div>
 
           <div id="faq-icon" title="Ayuda y Consejos">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28px" height="28px">
@@ -33,13 +39,8 @@
                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
             </svg>
           </div>
-        </div>
-        <div class="texto">
-          <img src="/imagenes/corona.webp" alt="corona" class="corona">
-          <div>Haide</div>
-          <div>Mis Quince Años</div>
-          <div>19 • 12 • 2025</div>
-        </div>
+        
+     
         <div class="action-area">
           <div class="frase">
             <h2 id="fraseCambia">¡Sonríe y captura el momento!</h2>
@@ -49,7 +50,7 @@
             <input type="file" id="cameraInput" accept="image/*" capture="environment">
             <label for="fileInput" class="boton-accion"> Elegir de la Galería <span id="contador-fotos"></span></label>
             <input type="file" id="fileInput" multiple accept="image/*">
-            <button type="submit">Subir Fotos</button>
+            <button id="boton" type="submit">Subir Fotos</button>
           </form>
         </div>
       </div>

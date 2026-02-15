@@ -3,7 +3,7 @@
 /* =================================================================== */
 :root {
     --text-color: #383838;
-    --primary-color: #73C4F1;
+    --primary-color: #eb0000;
     --secondary-color: #730c88;
     --font-headings: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
@@ -70,37 +70,44 @@ body {
     inset: 0;
     z-index: 10;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    
     overflow: hidden;
-    background-image: url(imagenes/fondo.webp);
-    background-size: contain;
-    background-position: center;
-
 }
 
-.flores {
-    width: 125%;
-    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, .25));
+
+
+.fondo {
+    width: 100%;
+    
+    object-fit: cover;
+    z-index: 1;
 }
 
-.flores2 {
-    width: 50%;
+.floresdecorativas {
     position: absolute;
-    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+.xv {
+    width: 100%;
+    position: absolute;
+    
     bottom: 0;
     z-index: 2;
 }
 
-.quinceanera {
-    width: 195%;
+.nombre {
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, .25));
     position: absolute;
-    left: -80%;
-    bottom: -15%;
-    z-index: 1;
-    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    right: 0;
+    top: 10%;
+    z-index: 2;
 }
+
 
 .texto {
     margin: 0;
@@ -119,11 +126,7 @@ body {
     text-shadow: -5px 5px 5px #00000050;
 }
 
-.texto img {
-    width: 50%;
-    filter: drop-shadow(-5px 5px 5px #00000050);
-    animation: scale 10s ease-in-out infinite;
-}
+
 
 @keyframes scale {
     0% {
@@ -248,10 +251,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff10;
+    background-color: #fffFFF90;
     border: 3px solid var(--primary-color);
     backdrop-filter: blur(5px);
-    color: var(--text-color);
+    color: var(--primary-color);
     padding: 15px 25px;
     border-radius: 50px;
     font-size: 1rem;
@@ -260,7 +263,10 @@ body {
     width: 55%;
     max-width: 300px;
     transition: all 0.3s ease;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, .25));
 }
+
+
 
 .boton-accion:hover,
 #uploadForm button[type="submit"]:hover {
@@ -269,7 +275,8 @@ body {
 }
 
 #uploadForm button[type="submit"] {
-    background-color: var(--primary-color);
+    background-color: #fffFFF;
+    color: var(--primary-color);
     border: none;
 }
 
@@ -281,6 +288,7 @@ body {
     background-color: #9E9E9E;
     cursor: not-allowed;
 }
+
 
 #contador-fotos {
     background-color: white;
@@ -313,7 +321,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-    color: var(--text-color);
+    color: white;
+    font-weight: bold;
     animation: bounce 2s infinite;
 }
 

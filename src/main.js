@@ -8,7 +8,7 @@ import imageCompression from 'browser-image-compression';
 const PROJECT_ID = "lseheeajwwhjsqjtffal"; 
 const UPLOAD_URL = `https://${PROJECT_ID}.supabase.co/functions/v1/upload-photo`;
 const GALLERY_URL = `https://${PROJECT_ID}.supabase.co/functions/v1/get-gallery`;
-const BODA_ID = 'XV_HAIDE';
+const BODA_ID = 'XV_ILSE-DARLYNE';
 
 // Elementos
 const uploadForm = document.getElementById('uploadForm');
